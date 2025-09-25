@@ -3,6 +3,7 @@ from anvil import *
 from anvil.tables import app_tables
 import datetime
 from anvil import Label, ColumnPanel, GridPanel
+import anvil
 
 class Home(HomeTemplate):
   def __init__(self, **properties):
@@ -19,8 +20,18 @@ class Home(HomeTemplate):
     print('hi')
     try:
       # Fetch only a limited number of records (e.g., first 10)
-      records = app_tables.monday.search(limit=1)
-      print(records)  # Log the records to check
+      anvil.server.reset_session()
+      p_labels = [i['period'] for i in app_tables.monday.search()]
+      print(p_labels)  # Log the records to check
+
+
+      for p_label in p_labels:
+        new_label = Label(text=p_label,
+                          role="headline",
+                          #font_size=20
+                         )
+        self.grid_panel_1.add_component(new_label)
+      
     except Exception as e:
       print(f"Error retrieving records: {e}")
 
