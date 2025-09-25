@@ -1,4 +1,16 @@
 allow_embedding: false
+db_schema:
+  monday:
+    client: none
+    columns:
+    - admin_ui: {order: 0, width: 200}
+      name: period
+      type: string
+    - admin_ui: {order: 1, width: 200}
+      name: start_min
+      type: number
+    server: full
+    title: monday
 dependencies: []
 metadata: {description: Not related to subjective yes related to days and dreams, logo_img: 'asset:oie_2524248a3v9VCmH(1).png', title: Objective}
 name: Objective
