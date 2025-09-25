@@ -6,10 +6,14 @@ class Home(HomeTemplate):
   def __init__(self, **properties):
     self.init_components(**properties)
     current_hour = datetime.datetime.now().hour
-    if current_hour < 12:
-      self.title_label.text = "Good morning"
+    if current_hour < 5:
+      self.title_label.text = "Sleep."
+    elif current_hour < 12:
+      self.title_label.text = "Good morning!"
+    elif current_hour < 18:
+      self.title_label.text = "Good afternoon."
     else:
-      self.title_label.text = "Good afternoon"
+      self.title_label.text = "Good night."
     
   def button_1_click(self, **event_args):
     open_form('Home')
