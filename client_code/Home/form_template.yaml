@@ -18,7 +18,8 @@ components:
     name: button_1
     properties: {text: HOME}
     type: Button
-  - layout_properties: {grid_position: 'KBSLBJ,MIOUDW'}
+  - event_bindings: {click: button_2_click}
+    layout_properties: {grid_position: 'KBSLBJ,MIOUDW'}
     name: button_2
     properties: {text: TIMETABLE}
     type: Button
