@@ -16,4 +16,5 @@ class Timetable(TimetableTemplate):
     open_form('Subject')
   
   def button_4_click(self, **event_args):
+    print('')
     open_form('Account')
