@@ -8,3 +8,7 @@ class Subject(SubjectTemplate):
     self.init_components(**properties)
 
     # Any code you write here will run before the form opens.
+
+  def button_4_click(self, **event_args):
+    target_url = "/Account"  # Replace with your desired URL
+    anvil.js.window.open(target_url, "_self")

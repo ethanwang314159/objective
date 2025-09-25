@@ -22,9 +22,10 @@ components:
     name: button_2
     properties: {text: TIMETABLE}
     type: Button
-  - layout_properties: {grid_position: 'DIKKWQ,GMSMKB'}
+  - data_bindings: []
+    layout_properties: {grid_position: 'DIKKWQ,GMSMKB'}
     name: button_3
-    properties: {text: Subjects}
+    properties: {text: Subjects, tooltip: what}
     type: Button
   - layout_properties: {grid_position: 'QRLBBU,VTATJY'}
     name: button_4

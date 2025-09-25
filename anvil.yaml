@@ -1,17 +1,15 @@
 allow_embedding: false
-dependencies:
-- dep_id: dep_pqjh11o5sg81bn
-  resolution_hints: {app_id: 3PIDO5P3H4VPEMPL, name: routing, package_name: routing}
-  version: {version_tag: v0.4.1}
+dependencies: []
 metadata: {description: Not related to subjective yes related to days and dreams, logo_img: 'asset:oie_2524248a3v9VCmH(1).png', title: Objective}
 name: Objective
 native_deps: {head_html: '<link href="https://fonts.googleapis.com/css2?family=Eczar:wght@400;600&family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet" rel="preload" as="font" crossorigin="anonymous">'}
 package_name: Objective
 runtime_options:
   client_version: '3'
+  legacy_features: {__dict__: true, bootstrap3: true, class_names: true, root_container: true}
   server_spec: {base: python310-minimal}
   server_version: python3-sandbox
-  version: 2
+  version: 3
 services:
 - client_config: {}
   server_config: {}
