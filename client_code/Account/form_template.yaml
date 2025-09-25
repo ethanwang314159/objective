@@ -4,6 +4,10 @@ components:
     name: title_label
     properties: {bold: true, role: headline, text: Objective}
     type: Label
+  - layout_properties: {grid_position: 'FORSDR,MTWDJI'}
+    name: spacer_1
+    properties: {height: 32}
+    type: Spacer
   layout_properties: {slot: default}
   name: column_panel_1
   properties: {col_widths: '{}'}
