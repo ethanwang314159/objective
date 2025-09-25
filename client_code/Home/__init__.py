@@ -15,7 +15,6 @@ class Home(HomeTemplate):
     open_form('Home')
 
   def button_2_click(self, **event_args):
-    print('timetable')
     open_form('Timetable')
   
   def button_3_click(self, **event_args):
