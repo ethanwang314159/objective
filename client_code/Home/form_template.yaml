@@ -24,11 +24,13 @@ components:
     properties: {text: TIMETABLE}
     type: Button
   - data_bindings: []
+    event_bindings: {click: button_3_click}
     layout_properties: {grid_position: 'DIKKWQ,GMSMKB'}
     name: button_3
     properties: {text: Subjects, tooltip: what}
     type: Button
-  - layout_properties: {grid_position: 'QRLBBU,VTATJY'}
+  - event_bindings: {click: button_4_click}
+    layout_properties: {grid_position: 'QRLBBU,VTATJY'}
     name: button_4
     properties: {text: ACCOUNT}
     type: Button

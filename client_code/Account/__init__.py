@@ -4,7 +4,16 @@ from anvil import *
 
 class Account(AccountTemplate):
   def __init__(self, **properties):
-    # Set Form properties and Data Bindings.
     self.init_components(**properties)
+  
+  def button_1_click(self, **event_args):
+    open_form('Home')
 
-    # Any code you write here will run before the form opens.
+  def button_2_click(self, **event_args):
+    open_form('Timetable')
+
+  def button_3_click(self, **event_args):
+    open_form('Subject')
+
+  def button_4_click(self, **event_args):
+    open_form('Account')
