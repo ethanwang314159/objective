@@ -1,6 +1,5 @@
 from ._anvil_designer import TimetableTemplate
 from anvil import *
-from routing import router
 
 
 class Timetable(TimetableTemplate):

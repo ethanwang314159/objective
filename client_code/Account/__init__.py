@@ -1,6 +1,5 @@
 from ._anvil_designer import AccountTemplate
 from anvil import *
-from routing import router
 
 
 class Account(AccountTemplate):

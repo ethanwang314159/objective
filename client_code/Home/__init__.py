@@ -1,6 +1,5 @@
 from ._anvil_designer import HomeTemplate
 from anvil import *
-from routing import router
 
 
 class Home(HomeTemplate):

@@ -1,8 +1,5 @@
 allow_embedding: false
-dependencies:
-- dep_id: dep_26a98lp4rljn
-  resolution_hints: {app_id: 3PIDO5P3H4VPEMPL, name: routing, package_name: routing}
-  version: {version_tag: v0.4.1}
+dependencies: []
 metadata: {description: Not related to subjective yes related to days and dreams, logo_img: 'asset:oie_2524248a3v9VCmH(1).png', title: Objective}
 name: Objective
 native_deps: {head_html: '<link href="https://fonts.googleapis.com/css2?family=Eczar:wght@400;600&family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet" rel="preload" as="font" crossorigin="anonymous">'}
