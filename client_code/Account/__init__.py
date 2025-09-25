@@ -7,6 +7,7 @@ class Account(AccountTemplate):
     self.init_components(**properties)
   
   def button_1_click(self, **event_args):
+    print('home')
     open_form('Home')
 
   def button_2_click(self, **event_args):
