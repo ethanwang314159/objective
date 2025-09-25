@@ -1,7 +1,8 @@
 allow_embedding: false
-name: Rally App 1
+metadata: {description: Not related to subjective yes related to days and dreams, logo_img: 'asset:oie_2524248a3v9VCmH(1).png', title: Objective}
+name: Objective
 native_deps: {head_html: '<link href="https://fonts.googleapis.com/css2?family=Eczar:wght@400;600&family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet" rel="preload" as="font" crossorigin="anonymous">'}
-package_name: Rally_App_1
+package_name: Objective
 runtime_options:
   client_version: '3'
   server_spec: {base: python310-minimal}
