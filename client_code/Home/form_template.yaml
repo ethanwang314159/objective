@@ -7,7 +7,7 @@ components:
   - event_bindings: {tick: timer_1_tick}
     layout_properties: {grid_position: 'WXEDKQ,QMDHPP'}
     name: timer_1
-    properties: {}
+    properties: {interval: 1}
     type: Timer
   - layout_properties: {grid_position: 'TQLMUM,YGBYVQ'}
     name: label_1
