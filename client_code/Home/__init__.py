@@ -18,6 +18,11 @@ class Home(HomeTemplate):
     else:
       self.title_label.text = "Good night."
     self.updateTimes()
+    current_day_of_week = datetime.now().weekday()
+    days_of_week = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+    self.label_1.text = days_of_week[current_day_of_week]
+    
+
 
   def updateTimes(self):
     try:
@@ -58,11 +63,11 @@ class Home(HomeTemplate):
                                      )
         else:
           readable_diff_label = Label(text="Completed",
-                                     role="headline")
+                                      role="headline")
 
         self.grid_panel_2.add_component(time_label)
         self.grid_panel_3.add_component(readable_diff_label)
-      
+
     except Exception as e:
       print(f"Error retrieving records: {e}")
 
@@ -71,7 +76,7 @@ class Home(HomeTemplate):
 
   def button_2_click(self, **event_args):
     open_form('Timetable')
-  
+
   def button_3_click(self, **event_args):
     open_form('Subject')
 
