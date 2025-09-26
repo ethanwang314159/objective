@@ -34,7 +34,7 @@ class Home(HomeTemplate):
       for k in range(len(p_labels)):
         new_label = Label(text=p_labels[k],
                           role="headline",
-                          #font_size=20
+                          font_size=25
                          )
         self.grid_panel_1.add_component(new_label)
 
@@ -45,7 +45,7 @@ class Home(HomeTemplate):
         readable_time = "{}:{}".format(readable_hr, readable_min)
         time_label = Label(text=readable_time,
                            role="headline",
-                           font_size=20
+                           font_size=25
                           )
 
         now = datetime.now()
@@ -59,14 +59,14 @@ class Home(HomeTemplate):
           readable_diff = "{} hours {} minutes until start".format(readable_diff_hour, readable_diff_sec)
           readable_diff_label = Label(text=readable_diff,
                                       role="headline",
-                                      font_size=20
+                                      font_size=25
                                      )
         else:
           #print(ptime)
           #print(minutes_since_midnight)
           readable_diff_label = Label(text="Completed",
                                       role="headline",
-                                      font_size=20)
+                                      font_size=25)
 
         self.grid_panel_2.add_component(time_label)
         self.grid_panel_3.add_component(readable_diff_label)
