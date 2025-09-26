@@ -88,3 +88,6 @@ class Home(HomeTemplate):
 
   def link_1_click(self, **event_args):
     open_form('Home')
+
+  def timer_1_tick(self, **event_args):
+    self.updateTimes()

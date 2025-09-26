@@ -4,6 +4,11 @@ components:
     name: title_label
     properties: {bold: true, role: headline, text: Welcome.}
     type: Label
+  - event_bindings: {tick: timer_1_tick}
+    layout_properties: {grid_position: 'WXEDKQ,QMDHPP'}
+    name: timer_1
+    properties: {}
+    type: Timer
   - layout_properties: {grid_position: 'TQLMUM,YGBYVQ'}
     name: label_1
     properties: {role: title}
