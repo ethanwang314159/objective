@@ -45,23 +45,25 @@ class Home(HomeTemplate):
         readable_time = "{}:{}".format(readable_hr, readable_min)
         time_label = Label(text=readable_time,
                            role="headline",
-                           #font_size=20
+                           font_size=20
                           )
 
         now = datetime.now()
         midnight = now.replace(hour=0, minute=0, second=0, microsecond=0)
         time_since_midnight = now - midnight
-        seconds_since_midnight = int(time_since_midnight.total_seconds())
-        diff_minutes = ptime - seconds_since_midnight
+        minutes_since_midnight = int(time_since_midnight.total_seconds()) // 60
+        diff_minutes = ptime - minutes_since_midnight
         if diff_minutes > 0:
-          readable_diff_hour = str(diff_minutes // 60).rjust(2, '0')
-          readable_diff_sec = str(diff_minutes % 60).rjust(2, '0')
-          readable_diff = "{}:{}".format(readable_diff_hour, readable_diff_sec)
+          readable_diff_hour = str(diff_minutes // 60)#.rjust(2, '0')
+          readable_diff_sec = str(diff_minutes % 60)#.rjust(2, '0')
+          readable_diff = "{} hours {} minutes until start".format(readable_diff_hour, readable_diff_sec)
           readable_diff_label = Label(text=readable_diff,
                                       role="headline",
-                                      #font_size=20
+                                      font_size=20
                                      )
         else:
+          print(ptime)
+          print(minutes_since_midnight)
           readable_diff_label = Label(text="Completed",
                                       role="headline")
 
