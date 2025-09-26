@@ -22,15 +22,21 @@ class Home(HomeTemplate):
       # Fetch only a limited number of records (e.g., first 10)
       anvil.server.reset_session()
       p_labels = [i['period'] for i in app_tables.monday.search()]
+      p_times = [i['start_min'] for i in app_tables.monday.search()]
       print(p_labels)  # Log the records to check
 
 
-      for p_label in p_labels:
-        new_label = Label(text=p_label,
+      for k in range(len(p_labels)):
+        new_label = Label(text=p_labels[k],
                           role="headline",
                           #font_size=20
                          )
+        time_label = Label(text=p_times[k],
+                          role="headline",
+                          #font_size=20
+                          )
         self.grid_panel_1.add_component(new_label)
+        self.grid_panel_1.add_component(time_label, row=k)
       
     except Exception as e:
       print(f"Error retrieving records: {e}")

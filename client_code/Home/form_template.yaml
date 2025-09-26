@@ -9,7 +9,7 @@ components:
     properties: {height: 32}
     type: Spacer
   - components: []
-    layout_properties: {grid_position: 'WMSLMU,ZCRNMR'}
+    layout_properties: {full_width_row: false, grid_position: 'WMSLMU,ZCRNMR'}
     name: grid_panel_1
     properties: {}
     type: GridPanel
