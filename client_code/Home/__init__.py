@@ -62,8 +62,8 @@ class Home(HomeTemplate):
                                       font_size=20
                                      )
         else:
-          print(ptime)
-          print(minutes_since_midnight)
+          #print(ptime)
+          #print(minutes_since_midnight)
           readable_diff_label = Label(text="Completed",
                                       role="headline"
                                       font_size=20)
