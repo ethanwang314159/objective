@@ -20,3 +20,6 @@ class Timetable(TimetableTemplate):
   
   def button_4_click(self, **event_args):
     open_form('Account')
+
+  def link_1_click(self, **event_args):
+    open_form('Home')

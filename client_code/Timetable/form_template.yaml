@@ -36,10 +36,16 @@ components:
   name: column_panel_2
   properties: {}
   type: ColumnPanel
-- layout_properties: {slot: logo}
-  name: image_1
-  properties: {height: 57, source: _/theme/oie_2524248a3v9VCmH(1).png}
-  type: Image
+- components:
+  - layout_properties: {grid_position: 'GJSBDV,GJYTWK'}
+    name: image_1_copy
+    properties: {height: 57, source: _/theme/oie_2524248a3v9VCmH(1).png}
+    type: Image
+  event_bindings: {click: link_1_click}
+  layout_properties: {slot: logo}
+  name: link_1
+  properties: {}
+  type: Link
 container:
   properties: {html: '@theme:standard-page.html'}
   type: HtmlTemplate
