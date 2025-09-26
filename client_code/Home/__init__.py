@@ -23,20 +23,25 @@ class Home(HomeTemplate):
       anvil.server.reset_session()
       p_labels = [i['period'] for i in app_tables.monday.search()]
       p_times = [i['start_min'] for i in app_tables.monday.search()]
-      print(p_labels)  # Log the records to check
-
 
       for k in range(len(p_labels)):
         new_label = Label(text=p_labels[k],
                           role="headline",
                           #font_size=20
                          )
-        time_label = Label(text=p_times[k],
+        self.grid_panel_1.add_component(new_label)
+        
+      for j in range(len(p_times)):
+        ptime = p_times[j]
+        readable_hr = ptime // 60
+        readable_min = ptime % 60
+        readable_time = "{}:{}".format(readable_hr, readable_min)
+        time_label = Label(text=readable_time,
                           role="headline",
                           #font_size=20
                           )
-        self.grid_panel_1.add_component(new_label)
-        self.grid_panel_1.add_component(time_label, row=k)
+        
+        self.grid_panel_2.add_component(time_label, row=k)
       
     except Exception as e:
       print(f"Error retrieving records: {e}")
