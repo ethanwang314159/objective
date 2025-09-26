@@ -1,14 +1,14 @@
 from ._anvil_designer import HomeTemplate
 from anvil import *
 from anvil.tables import app_tables
-import datetime
+from datetime import datetime
 from anvil import Label, ColumnPanel, GridPanel
 import anvil
 
 class Home(HomeTemplate):
   def __init__(self, **properties):
     self.init_components(**properties)
-    current_hour = datetime.datetime.now().hour
+    current_hour = datetime.now().hour
     if current_hour < 5:
       self.title_label.text = "Sleep."
     elif current_hour < 12:
@@ -41,7 +41,21 @@ class Home(HomeTemplate):
                           #font_size=20
                           )
         
-        self.grid_panel_2.add_component(time_label, row=k)
+        now = datetime.now()
+        midnight = now.replace(hour=0, minute=0, second=0, microsecond=0)
+        time_since_midnight = now - midnight
+        seconds_since_midnight = time_since_midnight.total_seconds()
+        readable_diff_hour = str(seconds_since_midnight // 60).rjust(2, '0')
+        readable_diff_sec = str(seconds_since_midnight % 60).rjust(2, '0')
+        readable_diff = "{}:{}".format(readable_diff_hour, readable_diff_sec)
+
+        readable_diff_label = Label(text=readable_diff,
+                                    role="headline",
+                                    #font_size=20
+                                   )
+        
+        self.grid_panel_2.add_component(time_label)
+        self.grid_panel_3.add_component(readable_diff_label)
       
     except Exception as e:
       print(f"Error retrieving records: {e}")
