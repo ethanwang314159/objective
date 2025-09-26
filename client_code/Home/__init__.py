@@ -17,7 +17,9 @@ class Home(HomeTemplate):
       self.title_label.text = "Good afternoon."
     else:
       self.title_label.text = "Good night."
-    print('hi')
+    self.updateTimes()
+
+  def updateTimes(self):
     try:
       # Fetch only a limited number of records (e.g., first 10)
       anvil.server.reset_session()
@@ -30,30 +32,34 @@ class Home(HomeTemplate):
                           #font_size=20
                          )
         self.grid_panel_1.add_component(new_label)
-        
+
       for j in range(len(p_times)):
         ptime = p_times[j]
         readable_hr = str(ptime // 60).rjust(2, '0')
         readable_min = str(ptime % 60).rjust(2, '0')
         readable_time = "{}:{}".format(readable_hr, readable_min)
         time_label = Label(text=readable_time,
-                          role="headline",
-                          #font_size=20
+                           role="headline",
+                           #font_size=20
                           )
-        
+
         now = datetime.now()
         midnight = now.replace(hour=0, minute=0, second=0, microsecond=0)
         time_since_midnight = now - midnight
-        seconds_since_midnight = time_since_midnight.total_seconds()
-        readable_diff_hour = str(seconds_since_midnight // 60).rjust(2, '0')
-        readable_diff_sec = str(seconds_since_midnight % 60).rjust(2, '0')
-        readable_diff = "{}:{}".format(readable_diff_hour, readable_diff_sec)
+        seconds_since_midnight = int(time_since_midnight.total_seconds())
+        diff_minutes = ptime - seconds_since_midnight
+        if diff_minutes > 0:
+          readable_diff_hour = str(diff_minutes // 60).rjust(2, '0')
+          readable_diff_sec = str(diff_minutes % 60).rjust(2, '0')
+          readable_diff = "{}:{}".format(readable_diff_hour, readable_diff_sec)
+          readable_diff_label = Label(text=readable_diff,
+                                      role="headline",
+                                      #font_size=20
+                                     )
+        else:
+          readable_diff_label = Label(text="Completed",
+                                     role="headline")
 
-        readable_diff_label = Label(text=readable_diff,
-                                    role="headline",
-                                    #font_size=20
-                                   )
-        
         self.grid_panel_2.add_component(time_label)
         self.grid_panel_3.add_component(readable_diff_label)
       
