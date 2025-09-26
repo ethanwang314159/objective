@@ -51,7 +51,7 @@ class Home(HomeTemplate):
         now = datetime.now()
         midnight = now.replace(hour=0, minute=0, second=0, microsecond=0)
         time_since_midnight = now - midnight
-        seconds_since_midnight = int(time_since_midnight.total_seconds())
+        minutes_since_midnight = int(time_since_midnight.total_seconds()) // 60
         diff_minutes = ptime - seconds_since_midnight
         if diff_minutes > 0:
           readable_diff_hour = str(diff_minutes // 60).rjust(2, '0')
@@ -62,6 +62,8 @@ class Home(HomeTemplate):
                                       #font_size=20
                                      )
         else:
+          print(ptime)
+          print(seconds_since_min)
           readable_diff_label = Label(text="Completed",
                                       role="headline")
 
