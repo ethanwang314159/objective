@@ -33,8 +33,8 @@ class Home(HomeTemplate):
         
       for j in range(len(p_times)):
         ptime = p_times[j]
-        readable_hr = ptime // 60
-        readable_min = ptime % 60
+        readable_hr = str(ptime // 60).rjust(2, '0')
+        readable_min = str(ptime % 60).rjust(2, '0')
         readable_time = "{}:{}".format(readable_hr, readable_min)
         time_label = Label(text=readable_time,
                           role="headline",
