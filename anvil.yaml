@@ -11,6 +11,11 @@ db_schema:
       type: number
     server: full
     title: monday
+  table_3:
+    client: none
+    columns: []
+    server: full
+    title: Table 3
 dependencies: []
 metadata: {description: Not related to subjective yes related to days and dreams, logo_img: 'asset:oie_2524248a3v9VCmH(1).png', title: Objective}
 name: Objective
