@@ -65,7 +65,7 @@ class Home(HomeTemplate):
           #print(ptime)
           #print(minutes_since_midnight)
           readable_diff_label = Label(text="Completed",
-                                      role="headline"
+                                      role="headline",
                                       font_size=20)
 
         self.grid_panel_2.add_component(time_label)
