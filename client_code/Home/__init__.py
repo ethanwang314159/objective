@@ -62,9 +62,12 @@ class Home(HomeTemplate):
           if (int(diff_minutes // 60) == 0):
             readable_diff_hour = ''
           else:
-            readable_diff_hour = str(diff_minutes // 60) + 'h'
-          readable_diff_sec = str(diff_minutes % 60) + 'min'
-          readable_diff = "{} {}".format(readable_diff_hour, readable_diff_sec)
+            readable_diff_hour = str(diff_minutes // 60) + 'h '
+          if diff_minutes % 60 == 0:
+            readable_diff_min = ''
+          else:
+            readable_diff_min = str(diff_minutes % 60) + 'min'
+          readable_diff = readable_diff_hour + readable_diff_sec
           readable_diff_label = Label(text=readable_diff,
                                       role="headline",
                                       font_size=25
