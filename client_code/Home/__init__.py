@@ -58,9 +58,12 @@ class Home(HomeTemplate):
         minutes_since_midnight = int(time_since_midnight.total_seconds()) // 60
         diff_minutes = ptime - minutes_since_midnight
         if diff_minutes > 0:
-          readable_diff_hour = str(diff_minutes // 60)#.rjust(2, '0')
+          if (int(diff_minutes // 60) == 0):
+            readable_diff_hour = ''
+          else:
+            readable_diff_hour = str(diff_minutes // 60) + 'h'
           readable_diff_sec = str(diff_minutes % 60)#.rjust(2, '0')
-          readable_diff = "{}h {}min".format(readable_diff_hour, readable_diff_sec)
+          readable_diff = "{} {}".format(readable_diff_hour, readable_diff_sec)
           readable_diff_label = Label(text=readable_diff,
                                       role="headline",
                                       font_size=25
