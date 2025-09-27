@@ -22,14 +22,16 @@ class Home(HomeTemplate):
     current_day_of_week = datetime.now().weekday()
     days_of_week = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
     self.label_1.text = days_of_week[current_day_of_week]
+    self.p_labels = [i['period'] for i in app_tables.monday.search()]
+    self.p_times = [i['start_min'] for i in app_tables.monday.search()]
 
   def updateTimes(self):
     
     try:
       # Fetch only a limited number of records (e.g., first 10)
       anvil.server.reset_session()
-      p_labels = [i['period'] for i in app_tables.monday.search()]
-      p_times = [i['start_min'] for i in app_tables.monday.search()]
+      p_labels = self.p_labels
+      p_times = self.p_times
       self.grid_panel_2.clear()
       self.grid_panel_3.clear()
       self.grid_panel_1.clear()
