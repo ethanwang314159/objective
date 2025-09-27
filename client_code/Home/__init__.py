@@ -25,14 +25,14 @@ class Home(HomeTemplate):
 
 
   def updateTimes(self):
-    self.grid_panel_2.clear()
-    self.grid_panel_3.clear()
+    
     try:
       # Fetch only a limited number of records (e.g., first 10)
       anvil.server.reset_session()
       p_labels = [i['period'] for i in app_tables.monday.search()]
       p_times = [i['start_min'] for i in app_tables.monday.search()]
-
+      self.grid_panel_2.clear()
+      self.grid_panel_3.clear()
       for k in range(len(p_labels)):
         new_label = Label(text=p_labels[k],
                           role="headline",
@@ -75,7 +75,7 @@ class Home(HomeTemplate):
 
     except Exception as e:
       print(f"Error retrieving records: {e}")
-
+    
   def button_1_click(self, **event_args):
     open_form('Home')
 
