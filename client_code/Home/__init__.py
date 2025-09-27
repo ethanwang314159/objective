@@ -32,6 +32,7 @@ class Home(HomeTemplate):
       p_times = [i['start_min'] for i in app_tables.monday.search()]
       self.grid_panel_2.clear()
       self.grid_panel_3.clear()
+      self.grid_panel_1.clear()
       for k in range(len(p_labels)):
         new_label = Label(text=p_labels[k],
                           role="headline",
