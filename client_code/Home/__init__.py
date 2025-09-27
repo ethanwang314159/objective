@@ -8,6 +8,7 @@ import anvil
 class Home(HomeTemplate):
   def __init__(self, **properties):
     self.init_components(**properties)
+    self.storage = []
     current_hour = datetime.now().hour
     if current_hour < 5:
       self.title_label.text = "Sleep."
@@ -21,8 +22,6 @@ class Home(HomeTemplate):
     current_day_of_week = datetime.now().weekday()
     days_of_week = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
     self.label_1.text = days_of_week[current_day_of_week]
-    
-
 
   def updateTimes(self):
     
