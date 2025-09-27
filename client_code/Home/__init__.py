@@ -18,12 +18,13 @@ class Home(HomeTemplate):
       self.title_label.text = "Good afternoon."
     else:
       self.title_label.text = "Good night."
-    self.updateTimes()
+    
     current_day_of_week = datetime.now().weekday()
     days_of_week = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
     self.label_1.text = days_of_week[current_day_of_week]
     self.p_labels = [i['period'] for i in app_tables.monday.search()]
     self.p_times = [i['start_min'] for i in app_tables.monday.search()]
+    self.updateTimes()
 
   def updateTimes(self):
     
