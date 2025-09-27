@@ -25,6 +25,8 @@ class Home(HomeTemplate):
 
 
   def updateTimes(self):
+    self.grid_panel_2.clear()
+    self.grid_panel_3.clear()
     try:
       # Fetch only a limited number of records (e.g., first 10)
       anvil.server.reset_session()
