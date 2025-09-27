@@ -67,7 +67,7 @@ class Home(HomeTemplate):
             readable_diff_min = ''
           else:
             readable_diff_min = str(diff_minutes % 60) + 'min'
-          readable_diff = readable_diff_hour + readable_diff_sec
+          readable_diff = readable_diff_hour + readable_diff_min
           readable_diff_label = Label(text=readable_diff,
                                       role="headline",
                                       font_size=25
