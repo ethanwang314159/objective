@@ -39,7 +39,7 @@ components:
   - event_bindings: {click: button_2_click}
     layout_properties: {grid_position: 'KBSLBJ,MIOUDW'}
     name: button_2
-    properties: {text: MOON}
+    properties: {text: Timetable}
     type: Button
   - data_bindings: []
     event_bindings: {click: button_3_click}
