@@ -1,12 +1,15 @@
-from ._anvil_designer import HomeTemplate
-from ._anvil_designer import HomeTemplate
+from ._anvil_designer import AboutTemplate
 from anvil import *
+import anvil.tables as tables
+import anvil.tables.query as q
+from anvil.tables import app_tables
 from anvil.tables import app_tables
 from datetime import datetime
 from anvil import Label, ColumnPanel, GridPanel
 import anvil
 
-class Home(HomeTemplate):
+
+class About(AboutTemplate):
   def __init__(self, **properties):
     self.init_components(**properties)
     self.storage = []
@@ -19,16 +22,23 @@ class Home(HomeTemplate):
       self.title_label.text = "Good afternoon."
     else:
       self.title_label.text = "Good night."
-    
+
     current_day_of_week = datetime.now().weekday()
-    days_of_week = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+    days_of_week = [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday",
+    ]
     self.label_1.text = days_of_week[current_day_of_week]
-    self.p_labels = [i['period'] for i in app_tables.monday.search()]
-    self.p_times = [i['start_min'] for i in app_tables.monday.search()]
+    self.p_labels = [i["period"] for i in app_tables.monday.search()]
+    self.p_times = [i["start_min"] for i in app_tables.monday.search()]
     self.updateTimes()
 
   def updateTimes(self):
-    
     try:
       # Fetch only a limited number of records (e.g., first 10)
       anvil.server.reset_session()
@@ -38,21 +48,15 @@ class Home(HomeTemplate):
       self.grid_panel_3.clear()
       self.grid_panel_1.clear()
       for k in range(len(p_labels)):
-        new_label = Label(text=p_labels[k],
-                          role="headline",
-                          font_size=25
-                         )
+        new_label = Label(text=p_labels[k], role="headline", font_size=25)
         self.grid_panel_1.add_component(new_label)
 
       for j in range(len(p_times)):
         ptime = p_times[j]
-        readable_hr = str(ptime // 60).rjust(2, '0')
-        readable_min = str(ptime % 60).rjust(2, '0')
+        readable_hr = str(ptime // 60).rjust(2, "0")
+        readable_min = str(ptime % 60).rjust(2, "0")
         readable_time = "{}:{}".format(readable_hr, readable_min)
-        time_label = Label(text=readable_time,
-                           role="headline",
-                           font_size=25
-                          )
+        time_label = Label(text=readable_time, role="headline", font_size=25)
 
         now = datetime.now()
         midnight = now.replace(hour=0, minute=0, second=0, microsecond=0)
@@ -60,44 +64,39 @@ class Home(HomeTemplate):
         minutes_since_midnight = int(time_since_midnight.total_seconds()) // 60
         diff_minutes = ptime - minutes_since_midnight
         if diff_minutes > 0:
-          if (int(diff_minutes // 60) == 0):
-            readable_diff_hour = ''
+          if int(diff_minutes // 60) == 0:
+            readable_diff_hour = ""
           else:
-            readable_diff_hour = str(diff_minutes // 60) + 'h '
+            readable_diff_hour = str(diff_minutes // 60) + "h "
           if diff_minutes % 60 == 0:
-            readable_diff_min = ''
+            readable_diff_min = ""
           else:
-            readable_diff_min = str(diff_minutes % 60) + 'min'
+            readable_diff_min = str(diff_minutes % 60) + "min"
           readable_diff = readable_diff_hour + readable_diff_min
-          readable_diff_label = Label(text=readable_diff,
-                                      role="headline",
-                                      font_size=25
-                                     )
+          readable_diff_label = Label(text=readable_diff, role="headline", font_size=25)
         else:
-          readable_diff_label = Label(text="Completed",
-                                      role="headline",
-                                      font_size=25)
+          readable_diff_label = Label(text="Completed", role="headline", font_size=25)
 
         self.grid_panel_2.add_component(time_label)
         self.grid_panel_3.add_component(readable_diff_label)
 
     except Exception as e:
       print(f"Error retrieving records: {e}")
-    
+
   def button_1_click(self, **event_args):
-    open_form('Home')
+    open_form("Home")
 
   def button_2_click(self, **event_args):
-    open_form('Timetable')
+    open_form("Timetable")
 
   def button_3_click(self, **event_args):
-    open_form('Subject')
+    open_form("Subject")
 
   def button_4_click(self, **event_args):
-    open_form('Account')
+    open_form("Account")
 
   def link_1_click(self, **event_args):
-    open_form('Home')
+    open_form("Home")
 
   def timer_1_tick(self, **event_args):
     self.updateTimes()

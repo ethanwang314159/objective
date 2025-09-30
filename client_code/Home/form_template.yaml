@@ -31,6 +31,11 @@ components:
   properties: {col_widths: '{}'}
   type: ColumnPanel
 - components:
+  - event_bindings: {click: button_5_click}
+    layout_properties: {grid_position: 'JFLAWF,FEUUOD'}
+    name: button_5
+    properties: {text: About}
+    type: Button
   - event_bindings: {click: button_1_click}
     layout_properties: {grid_position: 'QMPEWH,ETFNQN'}
     name: button_1
